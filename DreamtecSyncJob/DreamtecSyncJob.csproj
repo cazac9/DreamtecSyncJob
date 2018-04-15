@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A54F0E0A-B6D6-4FD0-A689-DF8897796606}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DreamtecSyncJob</RootNamespace>
+    <AssemblyName>DreamtecSyncJob</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Rest.ClientRuntime, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.2.3.2\lib\net45\Microsoft.Rest.ClientRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.3\lib\net46\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Spatial, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.7.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.WebJobs">
+      <HintPath>..\packages\Microsoft.Azure.WebJobs.Core.1.1.2\lib\net45\Microsoft.Azure.WebJobs.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.WebJobs.Host">
+      <HintPath>..\packages\Microsoft.Azure.WebJobs.1.1.2\lib\net45\Microsoft.Azure.WebJobs.Host.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Edm, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.7.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.7.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.7.0\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=3.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.3.2.1\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WindowsAzure.Storage.7.0.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcumaticaClient\AcumaticaClient.cs" />
+    <Compile Include="AcumaticaClient\APQueryModifiedOperations.cs" />
+    <Compile Include="AcumaticaClient\APQueryModifiedOperationsExtensions.cs" />
+    <Compile Include="AcumaticaClient\APQueryOperations.cs" />
+    <Compile Include="AcumaticaClient\APQueryOperationsExtensions.cs" />
+    <Compile Include="AcumaticaClient\ARQueryModifiedOperations.cs" />
+    <Compile Include="AcumaticaClient\ARQueryModifiedOperationsExtensions.cs" />
+    <Compile Include="AcumaticaClient\ARQueryOperations.cs" />
+    <Compile Include="AcumaticaClient\ARQueryOperationsExtensions.cs" />
+    <Compile Include="AcumaticaClient\IAcumaticaClient.cs" />
+    <Compile Include="AcumaticaClient\IAPQueryModifiedOperations.cs" />
+    <Compile Include="AcumaticaClient\IAPQueryOperations.cs" />
+    <Compile Include="AcumaticaClient\IARQueryModifiedOperations.cs" />
+    <Compile Include="AcumaticaClient\IARQueryOperations.cs" />
+    <Compile Include="AcumaticaClient\Models\APQuery.cs" />
+    <Compile Include="AcumaticaClient\Models\APQueryModified.cs" />
+    <Compile Include="AcumaticaClient\Models\APQueryModifiedPutFileHeaders.cs" />
+    <Compile Include="AcumaticaClient\Models\APQueryPutFileHeaders.cs" />
+    <Compile Include="AcumaticaClient\Models\ARQuery.cs" />
+    <Compile Include="AcumaticaClient\Models\ARQueryModified.cs" />
+    <Compile Include="AcumaticaClient\Models\ARQueryModifiedPutFileHeaders.cs" />
+    <Compile Include="AcumaticaClient\Models\ARQueryPutFileHeaders.cs" />
+    <Compile Include="AcumaticaClient\Models\BooleanValue.cs" />
+    <Compile Include="AcumaticaClient\Models\ByteValue.cs" />
+    <Compile Include="AcumaticaClient\Models\CustomBooleanField.cs" />
+    <Compile Include="AcumaticaClient\Models\CustomByteField.cs" />
+    <Compile Include="AcumaticaClient\Models\CustomDateTimeField.cs" />
+    <Compile Include="AcumaticaClient\Models\CustomDecimalField.cs" />
+    <Compile Include="AcumaticaClient\Models\CustomDoubleField.cs" />
+    <Compile Include="AcumaticaClient\Models\CustomField.cs" />
+    <Compile Include="AcumaticaClient\Models\CustomGuidField.cs" />
+    <Compile Include="AcumaticaClient\Models\CustomIntField.cs" />
+    <Compile Include="AcumaticaClient\Models\CustomLongField.cs" />
+    <Compile Include="AcumaticaClient\Models\CustomShortField.cs" />
+    <Compile Include="AcumaticaClient\Models\CustomStringField.cs" />
+    <Compile Include="AcumaticaClient\Models\DateTimeValue.cs" />
+    <Compile Include="AcumaticaClient\Models\DecimalValue.cs" />
+    <Compile Include="AcumaticaClient\Models\DoubleValue.cs" />
+    <Compile Include="AcumaticaClient\Models\Entity.cs" />
+    <Compile Include="AcumaticaClient\Models\FileLink.cs" />
+    <Compile Include="AcumaticaClient\Models\GuidValue.cs" />
+    <Compile Include="AcumaticaClient\Models\IntValue.cs" />
+    <Compile Include="AcumaticaClient\Models\LongValue.cs" />
+    <Compile Include="AcumaticaClient\Models\ShortValue.cs" />
+    <Compile Include="AcumaticaClient\Models\StringValue.cs" />
+    <Compile Include="AcumaticaLoginCredentials.cs" />
+    <Compile Include="AutofacJobActivator.cs" />
+    <Compile Include="DreamtecSyncJobModule.cs" />
+    <Compile Include="Management\DataManager.cs" />
+    <Compile Include="Management\IDataManager.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Functions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TokenManeger.cs" />
+    <Compile Include="YttriumAuthResponse.cs" />
+    <Compile Include="YttriumClient\AccidentTowService.cs" />
+    <Compile Include="YttriumClient\AccidentTowServiceExtensions.cs" />
+    <Compile Include="YttriumClient\AccomodationService.cs" />
+    <Compile Include="YttriumClient\AccomodationServiceExtensions.cs" />
+    <Compile Include="YttriumClient\CalAmp.cs" />
+    <Compile Include="YttriumClient\CalAmpExtensions.cs" />
+    <Compile Include="YttriumClient\CaseModel.cs" />
+    <Compile Include="YttriumClient\CaseModelExtensions.cs" />
+    <Compile Include="YttriumClient\ClientCsi.cs" />
+    <Compile Include="YttriumClient\ClientCsiExtensions.cs" />
+    <Compile Include="YttriumClient\DriverAssistService.cs" />
+    <Compile Include="YttriumClient\DriverAssistServiceExtensions.cs" />
+    <Compile Include="YttriumClient\EmergencyAssistService.cs" />
+    <Compile Include="YttriumClient\EmergencyAssistServiceExtensions.cs" />
+    <Compile Include="YttriumClient\Financial.cs" />
+    <Compile Include="YttriumClient\FinancialExtensions.cs" />
+    <Compile Include="YttriumClient\HomeAssistService.cs" />
+    <Compile Include="YttriumClient\HomeAssistServiceExtensions.cs" />
+    <Compile Include="YttriumClient\IAccidentTowService.cs" />
+    <Compile Include="YttriumClient\IAccomodationService.cs" />
+    <Compile Include="YttriumClient\ICalAmp.cs" />
+    <Compile Include="YttriumClient\ICaseModel.cs" />
+    <Compile Include="YttriumClient\IClientCsi.cs" />
+    <Compile Include="YttriumClient\IDriverAssistService.cs" />
+    <Compile Include="YttriumClient\IEmergencyAssistService.cs" />
+    <Compile Include="YttriumClient\IFinancial.cs" />
+    <Compile Include="YttriumClient\IHomeAssistService.cs" />
+    <Compile Include="YttriumClient\ILegalAssistService.cs" />
+    <Compile Include="YttriumClient\IRecoveryService.cs" />
+    <Compile Include="YttriumClient\IReleaseRequestService.cs" />
+    <Compile Include="YttriumClient\IRoadsideAssistService.cs" />
+    <Compile Include="YttriumClient\ISauIntegration.cs" />
+    <Compile Include="YttriumClient\IService.cs" />
+    <Compile Include="YttriumClient\ISignIn.cs" />
+    <Compile Include="YttriumClient\ITaxiService.cs" />
+    <Compile Include="YttriumClient\ITrackerIntegration.cs" />
+    <Compile Include="YttriumClient\ITradeTowService.cs" />
+    <Compile Include="YttriumClient\IUpdate.cs" />
+    <Compile Include="YttriumClient\IVehicleLocksmithingCaseService.cs" />
+    <Compile Include="YttriumClient\IYttriumClient.cs" />
+    <Compile Include="YttriumClient\IZirconiumWebHooks.cs" />
+    <Compile Include="YttriumClient\LegalAssistService.cs" />
+    <Compile Include="YttriumClient\LegalAssistServiceExtensions.cs" />
+    <Compile Include="YttriumClient\Models\ResQNickelZirconiumCommonWebHookDtosCaseCreatedWebHookModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQNickelZirconiumCommonWebHookDtosCaseServiceCreatedWebHookModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQNickelZirconiumCommonWebHookDtosCaseServiceUpdatedWebHookModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQNickelZirconiumCommonWebHookDtosCaseUpdatedWebHookModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQNickelZirconiumCommonWebHookDtosContactPersonWebHookDto.cs" />
+    <Compile Include="YttriumClient\Models\ResQNickelZirconiumCommonWebHookDtosKeyValuePairWebHookDto.cs" />
+    <Compile Include="YttriumClient\Models\ResQNickelZirconiumCommonWebHookDtosLocationWebHookDto.cs" />
+    <Compile Include="YttriumClient\Models\ResQNickelZirconiumCommonWebHookDtosPolicyWebHookDto.cs" />
+    <Compile Include="YttriumClient\Models\ResQNickelZirconiumCommonWebHookDtosRelationshipWebHookDto.cs" />
+    <Compile Include="YttriumClient\Models\ResQNickelZirconiumCommonWebHookDtosRepresentativeWebHookDto.cs" />
+    <Compile Include="YttriumClient\Models\ResQNickelZirconiumCommonWebHookDtosServiceProviderAssignmentWebHookDto.cs" />
+    <Compile Include="YttriumClient\Models\ResQNickelZirconiumCommonWebHookDtosServiceProviderLocationUpdateWebHookModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQNickelZirconiumCommonWebHookDtosServiceProviderRelationshipWebHookDto.cs" />
+    <Compile Include="YttriumClient\Models\ResQNickelZirconiumCommonWebHookDtosVehicleWebHookDto.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiControllersSauIntegrationControllerIntegrateSauDto.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsAccountModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsAddCaseCommentModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsAddCaseCommentResultModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsBulkClientCsiModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCalAmpAddressModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCalAmpCrashModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCalAmpIntegrationModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCalAmpNotificationModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCalAmpVehicleModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCancelServiceModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCaseCommentAddedWebHookModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCaseServiceCommentAddedWebHookModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsChangeLocationModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsClientCsiResponse.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsClientCsiResultModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsContactPersonModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCreateAccidentTowServiceModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCreateAccidentTowServiceResultModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCreateAccomodationAssistServiceModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCreateAccomodationAssistServiceResultModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCreateCaseModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCreateCaseResultModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCreateDriverAssistServiceModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCreateDriverAssistServiceResultModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCreateEmergencyAssistServiceModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCreateHomeAssistanceServiceModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCreateLegalAssistServiceModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCreateLegalAssistServiceResultModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCreateRecoveryServiceModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCreateRecoveryServiceResultModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCreateReleaseRequestServiceModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCreateReleaseRequestServiceResultModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCreateRoadsideAssistanceServiceModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCreateServiceCommentModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCreateServiceResultModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCreateTaxiServiceModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCreateTaxiServiceResultModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCreateTradeTowServiceModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCreateTradeTowServiceResultModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCreateUserModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCreateUserResultModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCreateVehicleLocksmithingServiceModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCreateVehicleLocksmithingServiceResultModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsCustomerModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsFinaliseServiceModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsFinancialDocumentExportAllocationInformation.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsInitiateAutoDispatchModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsLocationModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsPaymentSpecificationModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsRescheduleServiceModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsResultModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsSauIntegrationIncident.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsSauIntegrationSauRequestModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsSauIntegrationSauRequestResultModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsScheduleModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsServiceProviderUpdatedModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsSignInModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsSignInResultModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsSignInUserModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsSubmitCaseServiceRatingResultModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsSubmitRatingModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsTrackerIntegrationCustomer.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsTrackerIntegrationIncident.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsTrackerIntegrationInsurer.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsTrackerIntegrationTrackerRequestModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsTrackerIntegrationTrackerRequestResultModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsTrackerIntegrationVehicle.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsUpdateCaseModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsUpdateCaseServiceTagModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsUpdateFinancialDocumentExportModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsUserWebHookModel.cs" />
+    <Compile Include="YttriumClient\Models\ResQYttriumWebApiModelsVehicleModel.cs" />
+    <Compile Include="YttriumClient\Models\SystemNullableResQBerylliumWebIso8601SerializableDateTimeOffset.cs" />
+    <Compile Include="YttriumClient\RecoveryService.cs" />
+    <Compile Include="YttriumClient\RecoveryServiceExtensions.cs" />
+    <Compile Include="YttriumClient\ReleaseRequestService.cs" />
+    <Compile Include="YttriumClient\ReleaseRequestServiceExtensions.cs" />
+    <Compile Include="YttriumClient\RoadsideAssistService.cs" />
+    <Compile Include="YttriumClient\RoadsideAssistServiceExtensions.cs" />
+    <Compile Include="YttriumClient\SauIntegration.cs" />
+    <Compile Include="YttriumClient\SauIntegrationExtensions.cs" />
+    <Compile Include="YttriumClient\Service.cs" />
+    <Compile Include="YttriumClient\ServiceExtensions.cs" />
+    <Compile Include="YttriumClient\SignIn.cs" />
+    <Compile Include="YttriumClient\SignInExtensions.cs" />
+    <Compile Include="YttriumClient\TaxiService.cs" />
+    <Compile Include="YttriumClient\TaxiServiceExtensions.cs" />
+    <Compile Include="YttriumClient\TrackerIntegration.cs" />
+    <Compile Include="YttriumClient\TrackerIntegrationExtensions.cs" />
+    <Compile Include="YttriumClient\TradeTowService.cs" />
+    <Compile Include="YttriumClient\TradeTowServiceExtensions.cs" />
+    <Compile Include="YttriumClient\Update.cs" />
+    <Compile Include="YttriumClient\UpdateExtensions.cs" />
+    <Compile Include="YttriumClient\VehicleLocksmithingCaseService.cs" />
+    <Compile Include="YttriumClient\VehicleLocksmithingCaseServiceExtensions.cs" />
+    <Compile Include="YttriumClient\YttriumClient.cs" />
+    <Compile Include="YttriumClient\ZirconiumWebHooks.cs" />
+    <Compile Include="YttriumClient\ZirconiumWebHooksExtensions.cs" />
+    <Compile Include="YttriumLoginCredentials.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\PushToDreamtec - Web Deploy.pubxml" />
+    <None Include="Properties\webjob-publish-settings.json" />
+    <None Include="settings.job">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Web.WebJobs.Publish.1.1.0\tools\webjobs.targets" Condition="Exists('..\packages\Microsoft.Web.WebJobs.Publish.1.1.0\tools\webjobs.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
