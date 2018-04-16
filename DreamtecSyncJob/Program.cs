@@ -20,10 +20,10 @@ namespace DreamtecSyncJob
             {
                 JobActivator = new AutofacJobActivator(container)
             };
-
+            config.UseTimers();
             var host = new JobHost(config);
-            // The following code ensures that the WebJob will be running continuously
-            host.Call(typeof(Functions).GetMethod("Trigger"));
+
+            host.RunAndBlock();
         }
     }
 }

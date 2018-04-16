@@ -13,8 +13,7 @@ namespace DreamtecSyncJob
             _dataManager = dataManager;
         }
 
-        [NoAutomaticTrigger]
-        public void Trigger(TextWriter log)
+        public void Trigger([TimerTrigger("00:01:00", RunOnStartup = true, UseMonitor = true)] TimerInfo timer, TextWriter log)
         {
             _dataManager.SyncData();
         }
